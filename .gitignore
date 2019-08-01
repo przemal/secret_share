@@ -1,0 +1,13 @@
+# Byte-compiled/optimized files
+__pycache__/
+
+# Distribution/packaging
+*.egg-info/
+build/
+dist/
+
+# JetBrains IDE project settings
+.idea/
+
+# Database
+/*.sqlite3
