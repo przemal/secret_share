@@ -48,3 +48,11 @@ class UserShare(Model):
             raise ValidationError('Either file or URL is required')
         elif self.file and self.url:
             raise ValidationError('Only file or URL can be given at the same time')
+
+    def is_expired(self) -> bool:
+        if self.expires > datetime.utcnow():
+            return False
+        return True
+
+    def is_url(self) -> bool:
+        return self.url is not None
