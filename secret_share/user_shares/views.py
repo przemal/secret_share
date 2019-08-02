@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
+from django.db.models import F
 from django.http import FileResponse
 from django.shortcuts import redirect
 from django.urls import reverse
@@ -45,6 +46,8 @@ class UserShareView(FormMixin, DetailView):
             if self.object.is_expired():
                 # TODO return error message
                 return self.form_invalid(form)
+            self.object.access_count = F('access_count') + 1  # prevent race
+            self.object.save()
             if self.object.is_url():
                 return redirect(self.object.url)
             else:
