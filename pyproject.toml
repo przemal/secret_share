@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "secret_share"
 version = "0.1.0"
-description = ""
+description = "Simple private file and URL sharing"
 authors = ["Przemysław Palacz <pprzemal@gmail.com>"]
 
 [tool.poetry.dependencies]
