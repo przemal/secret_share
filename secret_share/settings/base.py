@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'part'
-BASE_DIR = Path(__file__).parents[1]
+BASE_DIR = Path(__file__).parents[2]
 
 
 # Quick-start development settings - unsuitable for production
