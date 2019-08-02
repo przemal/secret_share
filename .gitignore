@@ -11,3 +11,6 @@ dist/
 
 # Database
 /*.sqlite3
+
+# User uploaded files
+/media/

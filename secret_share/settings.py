@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'secret_share.users'
+    'secret_share.users',
+    'secret_share.user_shares',
 ]
 
 MIDDLEWARE = [
@@ -126,3 +127,9 @@ AUTH_USER_MODEL = 'users.User'
 LOGIN_URL = '/user/login'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+
+# User uploads
+
+MEDIA_ROOT = str(BASE_DIR / 'media')
+MEDIA_URL = '/media/'
