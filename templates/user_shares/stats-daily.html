@@ -1,0 +1,14 @@
+<h2>Stats</h2>
+{% for object in object_list %}
+    {% ifchanged object.added.date %}
+        <h3>{{ object.added.date|date:'E j, Y' }}, added:</h3>
+    {% endifchanged %}
+    <p>
+    {% firstof object.url object.file %}
+    {% if object.access_count %}
+        has been visited {{ object.access_count }} times
+    {% else %}
+        has not been visited even once
+    {% endif %}
+    </p>
+{% endfor %}

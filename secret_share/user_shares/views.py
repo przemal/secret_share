@@ -7,6 +7,7 @@ from django.urls import reverse
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView
 from django.views.generic import DetailView
+from django.views.generic import ListView
 from django.views.generic.edit import FormMixin
 
 from secret_share.user_shares.forms import AddUserShareForm
@@ -78,3 +79,15 @@ class UserShareInfoDetailView(DetailView):
         if self.request.user != object.user:
             raise PermissionDenied
         return object
+
+
+class UserShareDailyStatsListView(ListView):
+    """Daily share access statistics for the currently authenticated user."""
+    template_name = 'user_shares/stats-daily.html'
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+
+    def get_queryset(self):
+        return UserShare.objects.filter(user=self.request.user).order_by('added')
