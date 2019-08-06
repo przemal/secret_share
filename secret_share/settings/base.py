@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'part'
-BASE_DIR = Path(__file__).parents[2]
+BASE_DIR = Path(__file__).parents[1]
 
 
 # Quick-start development settings - unsuitable for production
@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'secret_share.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': str(BASE_DIR / 'db.sqlite3'),
+        'NAME': str(BASE_DIR.parent / 'db.sqlite3'),
     }
 }
 
@@ -132,5 +132,5 @@ LOGOUT_REDIRECT_URL = '/'
 
 # User uploads
 
-MEDIA_ROOT = str(BASE_DIR / 'media')
+MEDIA_ROOT = str(BASE_DIR.parent / 'media')
 MEDIA_URL = '/media/'
