@@ -10,8 +10,9 @@ pip install git+https://github.com/przemal/secret_share.git
 
 ## Usage
 ```console
-python manage.py migrate  # setup database
-python manage.py runserve
+source venv/bin/activate  # enter venv
+manage migrate  # setup database
+manage runserve
 ```
 
 # DISCLAIMER
